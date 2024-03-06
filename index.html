@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>random number breakdown</title>
+
+
+    <script>
+       function generateRandomNumber(){
+        var randomNumber = Math.floor(Math.random()*1001);
+
+        document.getElementById("randomNumber").innerText="Randomly generated number:" + randomNumber;
+        
+        var hundreds0 = Math.floor(randomNumber/ 100);
+        var hundreds = hundreds0 * 100;
+        var tens0 = Math.floor((randomNumber % 100)/10);
+        var tens = tens0 * 10;
+        var ones = randomNumber % 10;
+
+        document.getElementById("breakdown").innerText = "Breakdown: [" + hundreds + "," + tens + "," + ones + "]";
+
+        var currentDate = new Date().toDateString();
+        document.getElementById("date").innerText = "Date today: " + currentDate;
+
+       }
+    </script>
+</head>
+<body>
+    <h1>Random Number Generator</h1>
+    <button onclick="generateRandomNumber()">Click here to Generate Random Number! </button>
+    <br></br>
+    <div id="randomNumber"></div>
+    <div id="breakdown"></div>
+    <div id="date"></div>
+</body>
+</html>
